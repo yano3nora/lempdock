@@ -2,23 +2,14 @@ version: '3'
 services:
   app:
     build: ./.docker/app
-    environment:
-      - TZ
-      - LANG
-      - DOMAIN
-      - DB_DATABASE
-      - DB_USERNAME
-      - DB_PASSWORD
+    env_file: .env
     volumes:
       - .:/var/www
     depends_on:
       - db
   web:
     image: nginx:1.15.6
-    environment:
-      - TZ
-      - LANG
-      - DOMAIN
+    env_file: .env
     ports:
       - "80:80"
       - "443:443"
