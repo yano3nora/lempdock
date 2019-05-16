@@ -64,12 +64,12 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install -j$(nproc) gd \
   && docker-php-ext-install pdo_mysql pdo_pgsql
 RUN apt-get update && \
-    apt-get install apt-utils curl gnupg cmake -y && \
-    mkdir /tmp/libzip && cd /tmp/libzip && curl -sSLO https://libzip.org/download/libzip-1.4.0.tar.gz && \
-    tar zxf libzip-1.4.0.tar.gz && cd libzip-1.4.0/ && mkdir build && cd build && cmake ../ && \
-    make > /dev/null && make install && \
-    docker-php-ext-configure zip --with-libzip=/usr/local/lib/libzip.so && \
-    docker-php-ext-install zip
+  apt-get install apt-utils curl gnupg cmake -y && \
+  mkdir /tmp/libzip && cd /tmp/libzip && curl -sSLO https://libzip.org/download/libzip-1.4.0.tar.gz && \
+  tar zxf libzip-1.4.0.tar.gz && cd libzip-1.4.0/ && mkdir build && cd build && cmake ../ && \
+  make > /dev/null && make install && \
+  docker-php-ext-configure zip --with-libzip=/usr/local/lib/libzip.so && \
+  docker-php-ext-install zip
 
 # Set php.ini
 RUN cp -f /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
