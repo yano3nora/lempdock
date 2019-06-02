@@ -27,6 +27,7 @@ $ docker-compose exec app bash
 
 # e.g. Install PHP framework that like the Laravel ...
 app> composer create-project --prefer-dist laravel/laravel laravel
+app> cd laravel
 app> php artisan key:generate --show
      > base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 app> exit
