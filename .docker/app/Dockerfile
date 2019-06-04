@@ -80,8 +80,9 @@ RUN sed -i -e "s|;mbstring.language = Japanese|mbstring.language = Japanese|" /u
   && sed -i -e "s|expose_php = On|expose_php = Off|" /usr/local/etc/php/php.ini \
   && sed -i -e "s|;date.timezone =|date.timezone = Asia/Tokyo|" /usr/local/etc/php/php.ini \
   && sed -i -e "s|display_errors = Off|display_errors = On|" /usr/local/etc/php/php.ini \
-  && sed -i -e "s|post_max_size = 8M|post_max_size = 100M|" /usr/local/etc/php/php.ini \
-  && sed -i -e "s|upload_max_filesize = 2M|upload_max_filesize = 100M|" /usr/local/etc/php/php.ini
+  && sed -i -e "s|post_max_size = 8M|post_max_size = 120M|" /usr/local/etc/php/php.ini \
+  && sed -i -e "s|upload_max_filesize = 2M|upload_max_filesize = 100M|" /usr/local/etc/php/php.ini \
+  && sed -i -e "s|memory_limit = 128M|upload_max_filesize = 512M|" /usr/local/etc/php/php.ini
 
 WORKDIR /var/www
 RUN chown -R www-data:www-data .
