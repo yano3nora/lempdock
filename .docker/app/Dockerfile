@@ -18,6 +18,7 @@ RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/
 # gd
 # hash
 # iconv
+# intl
 # json
 # libxml
 # mbstring
@@ -52,17 +53,18 @@ RUN apt-get update && apt-get install -y \
   unzip \
   vim \
   libpq-dev \
-  zlib1g-dev \
+  libicu-dev \
   libfreetype6-dev \
   libjpeg62-turbo-dev \
   libpng-dev \
   libmcrypt-dev \
   libzip-dev \
+  zlib1g-dev \
   && pecl install mcrypt-1.0.1 \
   && docker-php-ext-enable mcrypt \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install -j$(nproc) gd \
-  && docker-php-ext-install pdo_mysql pdo_pgsql
+  && docker-php-ext-install pdo_mysql pdo_pgsql intl
 RUN apt-get update && \
   apt-get install apt-utils curl gnupg cmake -y && \
   mkdir /tmp/libzip && cd /tmp/libzip && curl -sSLO https://libzip.org/download/libzip-1.4.0.tar.gz && \
