@@ -20,6 +20,7 @@ $ cp .env.development .env
 
 # Build containers.
 $ docker-compose build
+$ docker-compose run --rm db mysqld --initialize
 $ docker-compose up -d
 
 # Login to app container.
