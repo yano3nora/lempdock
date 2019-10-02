@@ -50,5 +50,6 @@ $ vi .env
   > DB_HOST=db
 
 # Restart containers.
-$ docker-compose restart
+$ docker-compose down
+$ docker-compose up
 ```
