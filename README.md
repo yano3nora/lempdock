@@ -12,6 +12,7 @@ The Docker boilerplate for LEMP environment.
   - php-fpm
 - nginx 1.15.6
 - mysql 5.7
+- redis 5.0.3
 
 ### DEPLOYMENT
 ```sh
@@ -20,7 +21,7 @@ $ cp .env.development .env
 
 # Build containers.
 $ docker-compose build
-$ docker-compose run --rm db mysqld --initialize
+$ docker-compose run --rm db mysqld --initialize  # Only at first build.
 $ docker-compose up -d
 
 # Login to app container.
@@ -52,5 +53,6 @@ $ vi .env
 
 # Restart containers.
 $ docker-compose down
+$ docker-compose build
 $ docker-compose up
 ```
